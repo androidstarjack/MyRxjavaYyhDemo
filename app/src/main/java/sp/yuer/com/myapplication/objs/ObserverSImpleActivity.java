@@ -35,17 +35,19 @@ public class ObserverSImpleActivity extends AppCompatActivity {
     public void onClick(View v){
         switch (v.getId()){
             case R.id.btn01:
-                ss0();
+                callNormble();
                 break;
         }
     }
-    public void ss0(){
+    public void callNormble(){
+
         Observable observable = Observable.create(new ObservableOnSubscribe() {
             @Override
             public void subscribe(ObservableEmitter e) throws Exception {
                 for (int i = 0; i < 10; i++) {
                     e.onNext("我发出了一些东西:   "+i);
                 }
+
             }
     });
         Observer observer = new Observer() {
